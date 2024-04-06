@@ -9,7 +9,8 @@ from tkinter import messagebox
 import webbrowser
 
 # Config setup
-
+directory_path = os.path.dirname(__file__)
+config_path = os.path.join(directory_path, '\settings.ini')
 config = configparser.ConfigParser()
 config.read('settings.ini')
 if not 'BASIC SETTINGS' in config:
@@ -31,7 +32,6 @@ special = config['BASIC SETTINGS']['Special']
 
 # variable setup
 
-directory_path = os.path.dirname(__file__)
 img_path = os.path.join(directory_path, f'resources\{bg}')
 sfx_path = os.path.join(directory_path, 'resources\secret.mp3')
 s = platform.system(), platform.release()
