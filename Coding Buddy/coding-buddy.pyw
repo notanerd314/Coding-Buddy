@@ -12,7 +12,7 @@ import webbrowser
 directory_path = os.path.dirname(__file__)
 config_path = os.path.join(directory_path, '\settings.ini')
 config = configparser.ConfigParser()
-config.read('settings.ini')
+config.read(config_path)
 if not 'BASIC SETTINGS' in config:
     messagebox.showerror('Error', "You've edited the words in the brackets eh?")
     messagebox.showinfo('How to fix', "Go to my website, which is https://notanerd314.w3spaces.com/index.html, and replace the new one with the old one")
