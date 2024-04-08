@@ -5,7 +5,13 @@ It says something in the title every 7 seconds, like `Typescript or Javascript?`
 
 ![Coding Buddy straight up telling the truth](/assets/example1.png)
 
-# How to use
+# How to install
+
+To use this program, you must install [**Python 3**](https://www.python.org/downloads/). Because this application is
+
+built opon **Python only**.
+
+# How to use the application itself
 To use it, simply open the file `coding-buddy.pyw` and just leave it alone in one place.
 
 > [!WARNING]
@@ -13,12 +19,12 @@ To use it, simply open the file `coding-buddy.pyw` and just leave it alone in on
 >
 > or else it simply won't work.
 
-# How to edit the `settings.ini` file
+# How to use the `settings.ini` file
 To customize the Coding Buddy, use the `settings.ini` file.
 > [!WARNING]
 > Do not edit the variables name and the brackets
 >
-> (`[BASIC OPTIONS]`) or the program will not open.
+> (or `[BASIC OPTIONS]`) or the program will not open.
 <details>
 <summary>How to use it</summary>
 
@@ -42,3 +48,5 @@ So the variables (means `Text_Color`) are the names of the options
 
 And to change the settings you have to edit the input (behind the `=`) to your defaults.
 </details>
+
+# Releases
