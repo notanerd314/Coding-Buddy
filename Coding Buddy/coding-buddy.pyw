@@ -78,7 +78,6 @@ words = [
     "You have a 0.01% chance of having a girlfriend",
     "I wish I could kick strangers in real life.",
     "Check if forgot the semicolon",
-    "If you're using this app in a big company then you're awesome",
     "Linux users.",
     "A chad uses the Arc browser",
     "I love chewing pens!",
@@ -87,7 +86,7 @@ words = [
     "The World's Fattest Violin. Really needs an exercise.",
     "Raping vs Rapping. A common mistake.",
     "wininit",
-    'Captcha made me solve 20 "puzzles".',
+    'Captcha made me solve 20 "puzzles" to create an account',
     "W3Schools tutorials",
 ]
 ugh = len(words)+1
