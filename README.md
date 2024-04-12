@@ -7,9 +7,7 @@ It says something in the title every 7 seconds, like `Typescript or Javascript?`
 
 # How to install
 
-To use this program, you must install [**Python 3**](https://www.python.org/downloads/). Because this application is
-
-built opon **Python only**.
+To use this program, you must install [**Python 3**](https://www.python.org/downloads/), pip and **pygame**.
 
 # How to use the application itself
 To use it, simply open the file `coding-buddy.pyw` and just leave it alone in one place.
@@ -18,6 +16,10 @@ To use it, simply open the file `coding-buddy.pyw` and just leave it alone in on
 > Do not try to edit the `settings.ini` file or the `resources` folder names,
 >
 > or else it simply won't work.
+>
+> Do not also try to move any files in this program's
+>
+> folder.
 
 # How to use the `settings.ini` file
 To customize the Coding Buddy, use the `settings.ini` file.

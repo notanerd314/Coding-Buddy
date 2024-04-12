@@ -10,19 +10,9 @@ import webbrowser
 
 # Config setup
 directory_path = os.path.dirname(__file__)
-config_path = os.path.join(directory_path, '\settings.ini')
+config_path = f"{directory_path}\settings.ini"
 config = configparser.ConfigParser()
 config.read(config_path)
-if not 'BASIC SETTINGS' in config:
-    messagebox.showerror('Error', "You've edited the words in the brackets eh?")
-    messagebox.showinfo('How to fix', "Go to my website, which is https://notanerd314.w3spaces.com/index.html, and replace the new one with the old one")
-    webbrowser.open("https://notanerd314.w3spaces.com/index.html")
-    exit()
-if not 'ADVANCED' in config:
-    messagebox.showerror('Error', "You've edited the words in the brackets eh?")
-    messagebox.showinfo('How to fix', "Go to my website, which is https://notanerd314.w3spaces.com/index.html, and replace the new one with the old one")
-    webbrowser.open("https://notanerd314.w3spaces.com/index.html")
-    exit()
 
 # Config data
 
@@ -41,13 +31,12 @@ words = [
     "Pygame sucks, it looks basic but it's stupidly complex",
     "hangout with me or else i will taskkill /im svchost.exe /f",
     "0.1 + 0.2 = 0.30000000000000000000000000004",
-    "tax evasion is fun ngl",
+    "Global warning exists because I'm hot.",
     "i knew you're using the code editor in dark mode",
     "Pls play with me",
     "web development is pure garbage",
     "you can change how i exist in the settings.ini file",
     'did you know? 25% of my code was taken from StackOverFlow',                                          
-    "i eat kids",
     "i'm asian",
     "cheezits",
     "godot is better than unity",
@@ -80,19 +69,26 @@ words = [
     "evade taxes, that's what real adults do.",
     "i feel so supercalifragilisticexpialidocious",
     "*vine boom x10*",
-    "balls are snacks, they're CRUNCHY",
-    "I use messagebox.showinfo() to do that, heh?",
+    "Nick Nack",
+    "I use messagebox.showinfo() to do that, ha.",
     "MOMMY ATE MY CHOCOLATE!!~",
     "596F752776652077617374656420796F75722074696D6521",
     "move me around",
     "I miss my pet rock",
-    "You have a 0.5% chance of having a girlfriend",
+    "You have a 0.01% chance of having a girlfriend",
     "I wish I could kick strangers in real life.",
     "Check if forgot the semicolon",
-    "If you're using this app in a big company then you're a chad 👍",
-    "Linux users",
+    "If you're using this app in a big company then you're awesome",
+    "Linux users.",
     "A chad uses the Arc browser",
     "I love chewing pens!",
+    "I love criticizing people",
+    "I nevre make speling mistaks!!",
+    "The World's Fattest Violin. Really needs an exercise.",
+    "Raping vs Rapping. A common mistake.",
+    "wininit",
+    'Captcha made me solve 20 "puzzles".',
+    "W3Schools tutorials",
 ]
 ugh = len(words)+1
 words.append(f"The total sentences I can speak is {ugh}")
