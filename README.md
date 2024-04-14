@@ -17,7 +17,7 @@ If you couldn't, go to this [**website**](https://www.pygame.org/wiki/GettingSta
 Then press the green **Code** button, and choose **Download ZIP file**. Next, extract the file and open the `coding-buddy.py` file. If it's not running then you haven't installed pygame.
 
 # How to customize
-The `settings.ini` file is used for customizing **Coding Buddy**. This is the guide on how to customize it.
+The `settings.ini` file is used for customizing **Coding Buddy**. Open it and then edit the settings.
 > [!WARNING]
 > This part if done wrong can result in **breaking** the program
 > Proceed with **caution** while doing that step.
