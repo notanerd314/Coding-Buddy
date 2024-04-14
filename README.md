@@ -3,7 +3,7 @@ Coding Buddy encourages you while programming. Ideal for intermediate programmer
 
 It says something in the title every 7 seconds, like `Typescript or Javascript?`
 
-![Coding Buddy straight up telling the truth](/assets/example1.png)
+![Coding Buddy straight up telling the truth](/mdimages/example1.png)
 
 # How to install
 
