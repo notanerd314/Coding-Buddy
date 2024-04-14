@@ -1,54 +1,25 @@
 # Coding Buddy
-Coding Buddy encourages you while programming. Ideal for intermediate programmers.
+#### Coding Buddy is a **pygame** application, designed for making the developer less bored.
 
-It says something in the title every 7 seconds, like `Typescript or Javascript?`
+Here's an example image of how it works:
 
 ![Coding Buddy straight up telling the truth](/mdimages/example1.png)
 
 # How to install
 
-To use this program, you must install [**Python 3**](https://www.python.org/downloads/), pip and **pygame**.
-
-# How to use the application itself
-To use it, simply open the file `coding-buddy.pyw` and just leave it alone in one place.
-
-> [!WARNING]
-> Do not try to edit the `settings.ini` file or the `resources` folder names,
->
-> or else it simply won't work.
->
-> Do not also try to move any files in this program's
->
-> folder.
-
-# How to use the `settings.ini` file
-To customize the Coding Buddy, use the `settings.ini` file.
-> [!WARNING]
-> Do not edit the variables name and the brackets
->
-> (or `[BASIC OPTIONS]`) or the program will not open.
-<details>
-<summary>How to use it</summary>
-
-### How to use it
-In text file you should see this:
-```ini
-# DO NOT EDIT THE VARIABLE NAMES AND THOSE THINGS IN THE BRACKETS or the program will die
-
-[BASIC SETTINGS]
-
-# Use RGB color to determine what color you want to use for the text
-# But don't put hashtags at the front of the hex code
-Text_Color = 000000
-
-# Change the text font displayed at the bottom
-# If the font you choose doesn't exist then it will use the default font
-Text_Font = Arial
-...
+To use this program, you must install [**Python 3**](https://www.python.org/downloads/) and **pygame**.
+To install **pygame**, open **Command Prompt** and type in:
 ```
-So the variables (means `Text_Color`) are the names of the options
+python3 -m pip install -U pygame --user
+```
+If you couldn't, go to this [**website**](https://www.pygame.org/wiki/GettingStarted) for more help.
 
-And to change the settings you have to edit the input (behind the `=`) to your defaults.
-</details>
+Then press the green **Code** button, and choose **Download ZIP file**. Next, extract the file and open the `coding-buddy.py` file. If it's not running then you haven't installed pygame.
 
-# Releases
+# How to customize
+The `settings.ini` file is used for customizing **Coding Buddy**. This is the guide on how to customize it.
+> [!WARNING]
+> This part if done wrong can result in **breaking** the program
+> Proceed with **caution** while doing that step.
+
+I won't explain how to edit `settings.ini` but you can find how to edit it [**here**](https://www.partitionwizard.com/partitionmanager/ini-file.html#:~:text=Since%20INI%20files%20are%20text,txt%20file%20first.).
