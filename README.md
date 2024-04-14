@@ -20,6 +20,7 @@ Then press the green **Code** button, and choose **Download ZIP file**. Next, ex
 The `settings.ini` file is used for customizing **Coding Buddy**. Open it and then edit the settings.
 > [!WARNING]
 > This part if done wrong can result in **breaking** the program
+>
 > Proceed with **caution** while doing that step.
 
 I won't explain how to edit `settings.ini` but you can find how to edit it [**here**](https://www.partitionwizard.com/partitionmanager/ini-file.html#:~:text=Since%20INI%20files%20are%20text,txt%20file%20first.).
