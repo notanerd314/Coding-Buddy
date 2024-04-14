@@ -6,7 +6,6 @@ import platform
 import configparser
 from tkinter import *
 from tkinter import messagebox
-import webbrowser
 
 # Config setup
 directory_path = os.path.dirname(__file__)
@@ -45,14 +44,12 @@ words = [
     'Typescript or Javascript?',
     'The percentage between you and the society is 0%',
     'special123',
-    f"you've wasted 0 seconds on this app (inaccurately)",
     'dear friend, talk to me or nothing happens',
     "🤓, that's me in an emoji form",
     "---___---",
     "3.14159265358979323846264338327950288419716939937510",
-    "If you got A minus in math then that means you're a baby",
+    'I got straight A except "Gender"',
     "filler sentence",
-    "LGBT is totally normal to me",
     "oh mommy! i want some chocolate!!1",
     "snack break?",
     "i was a developer but i got fired and become an application",
@@ -65,11 +62,9 @@ words = [
     "touch grass, stop coding s###",
     f"The operating system you are using is {p}.",
     "source code when?",
-    "Oh you like [Popular thing]. But did you know, [Popular thing] bad now.",
     "evade taxes, that's what real adults do.",
     "i feel so supercalifragilisticexpialidocious",
     "*vine boom x10*",
-    "Nick Nack",
     "I use messagebox.showinfo() to do that, ha.",
     "MOMMY ATE MY CHOCOLATE!!~",
     "596F752776652077617374656420796F75722074696D6521",
@@ -88,6 +83,7 @@ words = [
     "wininit",
     'Captcha made me solve 20 "puzzles" to create an account',
     "W3Schools tutorials",
+    f"You are using Python {platform.python_version()}.",
 ]
 ugh = len(words)+1
 words.append(f"The total sentences I can speak is {ugh}")
