@@ -14,7 +14,7 @@ python3 -m pip install -U pygame --user
 ```
 If you couldn't, go to this [**website**](https://www.pygame.org/wiki/GettingStarted) for more help.
 
-Then press the green **Code** button, and choose **Download ZIP file**. Next, extract the file and open the `coding-buddy.py` file. If it's not running then you haven't installed pygame.
+Then press the green **Code** button, and choose **Download ZIP file**. Next, extract the file and open the `coding-buddy.py` in the folder `Coding Buddy` file. If it's not running then you haven't installed pygame.
 
 # How to customize
 The `settings.ini` file is used for customizing **Coding Buddy**. Open it and then edit the settings.
