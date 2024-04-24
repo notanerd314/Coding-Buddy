@@ -7,6 +7,8 @@ Here's an example image of how it works:
 
 # How to install
 
+**I highly recommend using this program in Windows. Because I haven't tested it yet in Linux or MacOS.**
+
 To use this program, you must install [**Python 3**](https://www.python.org/downloads/) and **pygame**.
 To install **pygame**, open **Command Prompt** and type in:
 ```
@@ -24,3 +26,6 @@ The `settings.ini` file is used for customizing **Coding Buddy**. Open it and th
 > Proceed with **caution** while doing that step.
 
 I won't explain how to edit `settings.ini` but you can find how to edit it [**here**](https://www.partitionwizard.com/partitionmanager/ini-file.html#:~:text=Since%20INI%20files%20are%20text,txt%20file%20first.).
+
+# Key Shortcuts
+`Ctrl` + `H`: Opens command prompt (for Windows only).
