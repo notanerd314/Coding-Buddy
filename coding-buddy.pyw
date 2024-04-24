@@ -4,28 +4,36 @@ import os
 import random
 import platform
 import configparser
+import subprocess
 from tkinter import *
 from tkinter import messagebox
 
 # Config setup
 directory_path = os.path.dirname(__file__)
-config_path = f"{directory_path}\settings.ini"
+config_path = os.path.join(directory_path, 'settings.ini')
 config = configparser.ConfigParser()
 config.read(config_path)
 
 # Config data
-
-hex = config['BASIC SETTINGS']['Text_Color']
-bg = config['BASIC SETTINGS']['Bg_Image']
+hex_color = config['BASIC SETTINGS']['Text_Color']
+bg_image = config['BASIC SETTINGS']['Bg_Image']
 special = config['BASIC SETTINGS']['Special']
+window_width = int(config['BASIC SETTINGS']['Window_Width'])
+window_height = int(config['BASIC SETTINGS']['Window_Height'])
+text_font = config['BASIC SETTINGS']['Text_Font']
+text_size = int(config['BASIC SETTINGS']['Text_Size'])
+resize_enabled = config.getboolean('ADVANCED', 'Resize')
+text_sync_enabled = config.getboolean('ADVANCED', 'Text_Sync')
+time_delay = int(config['ADVANCED']['Time_Delay'])
+goofy_size_change_enabled = config.getboolean('GOOFY', 'Size_Change')
 
-# variable setup
-
-img_path = os.path.join(directory_path, f'resources\{bg}')
-sfx_path = os.path.join(directory_path, 'resources\secret.mp3')
+# Variable setup
+img_path = os.path.join(directory_path, 'resources', bg_image)
+sfx_path = os.path.join(directory_path, 'resources', 'secret.mp3')
 s = platform.system(), platform.release()
 p = " ".join(s)
 pygame.init()
+
 words = [
     "Pygame sucks, it looks basic but it's stupidly complex",
     "hangout with me or else i will taskkill /im svchost.exe /f",
@@ -33,11 +41,9 @@ words = [
     "Global warning exists because I'm hot.",
     "i knew you're using the code editor in dark mode",
     "Pls play with me",
-    "web development is pure garbage",
     "you can change how i exist in the settings.ini file",
-    'did you know? 25% of my code was taken from StackOverFlow',                                          
-    "i'm asian",
-    "cheezits",
+    'did you know? 18% of my code was taken from StackOverFlow',                                          
+    "Programming isn't just coding",
     "godot is better than unity",
     "give me access to system32 so i can destroy it",
     f"Traceback (most recent call last): SHUT UP.",
@@ -56,8 +62,6 @@ words = [
     "i wish i was a real person, not a python application",
     "are you copying code from StackOverFlow?",
     "fiddlesticks",
-    "Wanna have free Robux? Go to ! (actually don't go)",
-    "chrome is bulls###",
     "i am depressed",
     "touch grass, stop coding s###",
     f"The operating system you are using is {p}.",
@@ -73,86 +77,76 @@ words = [
     "You have a 0.01% chance of having a girlfriend",
     "I wish I could kick strangers in real life.",
     "Check if forgot the semicolon",
-    "Linux users.",
-    "A chad uses the Arc browser",
     "I love chewing pens!",
     "I love criticizing people",
     "I nevre make speling mistaks!!",
-    "The World's Fattest Violin. Really needs an exercise.",
-    "Raping vs Rapping. A common mistake.",
     "wininit",
     'Captcha made me solve 20 "puzzles" to create an account',
     "W3Schools tutorials",
     f"You are using Python {platform.python_version()}.",
 ]
-ugh = len(words)+1
+ugh = len(words) + 1
 words.append(f"The total sentences I can speak is {ugh}")
 
 # Hex to rgb setup
-
 def convert(hex):
-    return tuple(int(hex[i:i+2], 16) for i in (0,2,4))
-hex = convert(hex)
+    return tuple(int(hex[i:i+2], 16) for i in (0, 2, 4))
 
-# pygame setup
+hex_color = convert(hex_color)
 
+# Pygame setup
 img = pygame.image.load(img_path)
-if config["ADVANCED"]['Resize'] == "1":
-    window = pygame.display.set_mode(
-        (int(config['BASIC SETTINGS']['Window_Width']),int(config['BASIC SETTINGS']['Window_Height'])), 
-        pygame.RESIZABLE
-    )
+if resize_enabled:
+    window = pygame.display.set_mode((window_width, window_height), pygame.RESIZABLE)
 else:
-    window = pygame.display.set_mode((int(config['BASIC SETTINGS']['Window_Width']),int(config['BASIC SETTINGS']['Window_Height'])))
-ran = words[random.randint(0, len(words)-1)]
-if config["ADVANCED"]["Text_Sync"] == "1":
+    window = pygame.display.set_mode((window_width, window_height))
+
+ran = words[random.randint(0, len(words) - 1)]
+if text_sync_enabled:
     pygame.display.set_caption(ran)
 else:
-    pygame.display.set_caption(config["ADVANCED"]["Window_Name"])
+    pygame.display.set_caption(config['ADVANCED']['Window_Name'])
 pygame.display.set_icon(img)
 background = pygame.image.load(img_path).convert()
 background = pygame.transform.smoothscale(background, window.get_size())
 sfx = pygame.mixer.Sound(sfx_path)
-font = pygame.font.SysFont(config["BASIC SETTINGS"]['Text_Font'], int(config["BASIC SETTINGS"]['Text_Size']))
-text = font.render(ran, True, hex)
+font = pygame.font.SysFont(text_font, text_size)
+text = font.render(ran, True, hex_color)
 textrect = text.get_rect()
 textrect.bottomleft = (0, window.get_height())
 caption_timer = time.time()
-caption_interval = int(config['ADVANCED']['Time_Delay'])
 run = True
 
-# running loop
-
+# Main loop
 while run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-    if time.time() - caption_timer >= caption_interval:
-        ran = words[random.randint(0, len(words)-1)]
-        if config["GOOFY"]["Size_Change"] == "1":
-            if config["ADVANCED"]['Resize'] == "1":
-                window = pygame.display.set_mode(
-                            (random.randint(300,1000), random.randint(300,1000)), 
-                            pygame.RESIZABLE
-                        )
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_RCTRL or pygame.K_LCTRL:
+                if event.key == pygame.K_h:
+                    if "Windows" in p:
+                        subprocess.call('cmd.exe')
+                    else:
+                        messagebox.showerror("This feature is only available on Windows", "Error")
+    if time.time() - caption_timer >= time_delay:
+        ran = words[random.randint(0, len(words) - 1)]
+        if goofy_size_change_enabled:
+            if resize_enabled:
+                window = pygame.display.set_mode((random.randint(300, 1000), random.randint(300, 1000)), pygame.RESIZABLE)
             else:
-                 window = pygame.display.set_mode(
-                            (random.randint(300,1000), random.randint(300,1000)), 
-                        )
+                window = pygame.display.set_mode((random.randint(300, 1000), random.randint(300, 1000)))
         if ran == "*vine boom x10*" and special == '1':
             for a in range(10):
                 sfx.play()
-                time.sleep(.05)
+                time.sleep(0.05)
         elif ran == "special123":
-            ran = f"Random number generator, generated: {random.randint(0,10000000)}"
-        elif ran == "I use messagebox.showinfo() to do that, heh?" and special == '1':
-            messagebox.showinfo("Info","Stop concentrating, fool.")
-        
-        if config["ADVANCED"]["Text_Sync"] == "1":
+            ran = f"Random number generator, generated: {random.randint(0, 10000000)}"
+        if text_sync_enabled:
             pygame.display.set_caption(ran)
         else:
             pygame.display.set_caption(config["ADVANCED"]["Window_Name"])
-        text = font.render(ran, True, hex)
+        text = font.render(ran, True, hex_color)
         textrect = text.get_rect()
         caption_timer = time.time()
     textrect.bottomleft = (0, window.get_height())
@@ -161,7 +155,6 @@ while run:
     background = pygame.transform.smoothscale(background, window.get_size())
     pygame.display.flip()
 
-# ouch
-    
+# Clean up
 pygame.quit()
 exit()
