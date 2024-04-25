@@ -30,7 +30,6 @@ window_height = int(config[c]['Window_Height'])
 text_font = config[c]['Text_Font']
 text_size = int(config[c]['Text_Size'])
 resize_enabled = config.getboolean(a, 'Resize')
-text_sync_enabled = config.getboolean(a, 'Text_Sync')
 time_delay = int(config[a]['Time_Delay'])
 goofy_size_change_enabled = config.getboolean(g, 'Size_Change')
 program_ctrl_h = config[s]['Program']
@@ -43,10 +42,10 @@ p = " ".join(s)
 pygame.init()
 
 words = [
+    "I speak fluent sarcasm and JavaScript.",
     "Pygame sucks, it looks basic but it's stupidly complex",
     "hangout with me or else i will taskkill /im svchost.exe /f",
     "0.1 + 0.2 = 0.30000000000000000000000000004",
-    "Global warning exists because I'm hot.",
     "i knew you're using the code editor in dark mode",
     "Pls play with me",
     "you can change how i exist in the settings.ini file",
@@ -80,7 +79,7 @@ words = [
     "I use messagebox.showinfo() to do that, ha.",
     "MOMMY ATE MY CHOCOLATE!!~",
     "596F752776652077617374656420796F75722074696D6521",
-    "move me around",
+    "move me around please",
     "I miss my pet rock",
     "You have a 0.01% chance of having a girlfriend",
     "I wish I could kick strangers in real life.",
@@ -92,6 +91,12 @@ words = [
     'Captcha made me solve 20 "puzzles" to create an account',
     "W3Schools tutorials are kinda good",
     f"You are using Python {platform.python_version()}.",
+    "Notepad is the best programming editor.",
+    "Hey bro, sudo rm -rf /*!",
+    "I've deleted my database!",
+    "I LOVE VANILLA CSS",
+    "Write git push in your repo",
+    "Imagine writing code without errors."
 ]
 ugh = len(words) + 1
 words.append(f"The total sentences I can speak is {ugh}")
@@ -110,10 +115,7 @@ else:
     window = pygame.display.set_mode((window_width, window_height))
 
 ran = words[random.randint(0, len(words) - 1)]
-if text_sync_enabled:
-    pygame.display.set_caption(ran)
-else:
-    pygame.display.set_caption(config['ADVANCED']['Window_Name'])
+pygame.display.set_caption(config['ADVANCED']['Window_Name'])
 pygame.display.set_icon(img)
 background = pygame.image.load(img_path).convert()
 background = pygame.transform.smoothscale(background, window.get_size())
@@ -137,6 +139,8 @@ while run:
                         subprocess.call(program_ctrl_h)
                     else:
                         messagebox.showerror("This feature is only available on Windows and Linux", "Error")
+            if event.key == pygame.K_SPACE:
+                caption_timer = time.time() - time_delay
     if time.time() - caption_timer >= time_delay:
         ran = words[random.randint(0, len(words) - 1)]
         if goofy_size_change_enabled:
@@ -148,12 +152,8 @@ while run:
             for a in range(10):
                 sfx.play()
                 time.sleep(0.05)
-        elif ran == "special123":
+        elif ran == 'special123':
             ran = f"Random number generator, generated: {random.randint(0, 10000000)}"
-        if text_sync_enabled:
-            pygame.display.set_caption(ran)
-        else:
-            pygame.display.set_caption(config["ADVANCED"]["Window_Name"])
         text = font.render(ran, True, hex_color)
         textrect = text.get_rect()
         caption_timer = time.time()
