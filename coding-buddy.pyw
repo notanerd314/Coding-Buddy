@@ -33,6 +33,7 @@ resize_enabled = config.getboolean(a, 'Resize')
 time_delay = int(config[a]['Time_Delay'])
 goofy_size_change_enabled = config.getboolean(g, 'Size_Change')
 program_ctrl_h = config[s]['Program']
+enable_space = config[s]['Enable_Space']
 
 # Variable setup
 img_path = os.path.join(directory_path, 'resources', bg_image)
@@ -96,7 +97,8 @@ words = [
     "I've deleted my database!",
     "I LOVE VANILLA CSS",
     "Write git push in your repo",
-    "Imagine writing code without errors."
+    "Imagine writing code without errors.",
+    f"I'm located in {directory_path}",
 ]
 ugh = len(words) + 1
 words.append(f"The total sentences I can speak is {ugh}")
@@ -139,7 +141,7 @@ while run:
                         subprocess.call(program_ctrl_h)
                     else:
                         messagebox.showerror("This feature is only available on Windows and Linux", "Error")
-            if event.key == pygame.K_SPACE:
+            if event.key == pygame.K_SPACE and enable_space:
                 caption_timer = time.time() - time_delay
     if time.time() - caption_timer >= time_delay:
         ran = words[random.randint(0, len(words) - 1)]
