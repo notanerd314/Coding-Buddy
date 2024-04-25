@@ -28,4 +28,4 @@ The `settings.ini` file is used for customizing **Coding Buddy**. Open it and th
 I won't explain how to edit `settings.ini` but you can find how to edit it [**here**](https://www.partitionwizard.com/partitionmanager/ini-file.html#:~:text=Since%20INI%20files%20are%20text,txt%20file%20first.).
 
 # Key Shortcuts
-`Ctrl` + `H`: Opens command prompt (for Windows only).
+`Ctrl` + `H`: Opens the program you wanted to open, can be edited in `settings.ini`

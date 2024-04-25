@@ -14,18 +14,26 @@ config_path = os.path.join(directory_path, 'settings.ini')
 config = configparser.ConfigParser()
 config.read(config_path)
 
+# Config stuff
+c = 'CUSTOMIZATION'
+a = 'ADVANCED'
+g = 'GOOFY'
+s = 'SHORTCUTS'
+
+
 # Config data
-hex_color = config['BASIC SETTINGS']['Text_Color']
-bg_image = config['BASIC SETTINGS']['Bg_Image']
-special = config['BASIC SETTINGS']['Special']
-window_width = int(config['BASIC SETTINGS']['Window_Width'])
-window_height = int(config['BASIC SETTINGS']['Window_Height'])
-text_font = config['BASIC SETTINGS']['Text_Font']
-text_size = int(config['BASIC SETTINGS']['Text_Size'])
-resize_enabled = config.getboolean('ADVANCED', 'Resize')
-text_sync_enabled = config.getboolean('ADVANCED', 'Text_Sync')
-time_delay = int(config['ADVANCED']['Time_Delay'])
-goofy_size_change_enabled = config.getboolean('GOOFY', 'Size_Change')
+hex_color = config[c]['Text_Color']
+bg_image = config[c]['Bg_Image']
+special = config[c]['Special']
+window_width = int(config[c]['Window_Width'])
+window_height = int(config[c]['Window_Height'])
+text_font = config[c]['Text_Font']
+text_size = int(config[c]['Text_Size'])
+resize_enabled = config.getboolean(a, 'Resize')
+text_sync_enabled = config.getboolean(a, 'Text_Sync')
+time_delay = int(config[a]['Time_Delay'])
+goofy_size_change_enabled = config.getboolean(g, 'Size_Change')
+program_ctrl_h = config[s]['Program']
 
 # Variable setup
 img_path = os.path.join(directory_path, 'resources', bg_image)
@@ -82,7 +90,7 @@ words = [
     "I nevre make speling mistaks!!",
     "wininit",
     'Captcha made me solve 20 "puzzles" to create an account',
-    "W3Schools tutorials",
+    "W3Schools tutorials are kinda good",
     f"You are using Python {platform.python_version()}.",
 ]
 ugh = len(words) + 1
@@ -125,10 +133,10 @@ while run:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_RCTRL or pygame.K_LCTRL:
                 if event.key == pygame.K_h:
-                    if "Windows" in p:
-                        subprocess.call('cmd.exe')
+                    if not "Mac" in p:
+                        subprocess.call(program_ctrl_h)
                     else:
-                        messagebox.showerror("This feature is only available on Windows", "Error")
+                        messagebox.showerror("This feature is only available on Windows and Linux", "Error")
     if time.time() - caption_timer >= time_delay:
         ran = words[random.randint(0, len(words) - 1)]
         if goofy_size_change_enabled:
