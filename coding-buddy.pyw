@@ -100,7 +100,7 @@ words = [
     "Imagine writing code without errors.",
     f"I'm located in {directory_path}",
     "Discord is kinda cool",
-    "",
+    "You wanna game?",
 ]
 ugh = len(words) + 1
 words.append(f"The total sentences I can speak is {ugh}")
