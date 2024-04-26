@@ -38,9 +38,18 @@ enable_space = config[s]['Enable_Space']
 # Variable setup
 img_path = os.path.join(directory_path, 'resources', bg_image)
 sfx_path = os.path.join(directory_path, 'resources', 'secret.mp3')
+color_path = os.path.join(directory_path, 'resources', 'color_picker.pyw')
 s = platform.system(), platform.release()
 p = " ".join(s)
 pygame.init()
+
+# stuff setup
+def hexrandint():
+    red = random.randint(0, 255)
+    green = random.randint(0, 255)
+    blue = random.randint(0, 255)
+    hex_color = "{:02x}{:02x}{:02x}".format(red, green, blue)
+    return hex_color
 
 words = [
     "I speak fluent sarcasm and JavaScript.",
@@ -100,7 +109,8 @@ words = [
     "Imagine writing code without errors.",
     f"I'm located in {directory_path}",
     "Discord is kinda cool",
-    "You wanna game?",
+    "You wanna gaming?",
+    "special2",
 ]
 ugh = len(words) + 1
 words.append(f"The total sentences I can speak is {ugh}")
@@ -143,6 +153,8 @@ while run:
                         subprocess.call(program_ctrl_h)
                     else:
                         messagebox.showerror("This feature is only available on Windows and Linux", "Error")
+                if event.key == pygame.K_g:
+                    exec(open(color_path).read())
             if event.key == pygame.K_SPACE and enable_space:
                 caption_timer = time.time() - time_delay
     if time.time() - caption_timer >= time_delay:
@@ -158,6 +170,9 @@ while run:
                 time.sleep(0.05)
         elif ran == 'special123':
             ran = f"Random number generator, generated: {random.randint(0, 10000000)}"
+        elif ran == 'special2':
+            hex = hexrandint()
+            ran = f"#{hexrandint()} in RGB is {convert(hex)}"
         text = font.render(ran, True, hex_color)
         textrect = text.get_rect()
         caption_timer = time.time()
