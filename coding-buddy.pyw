@@ -99,6 +99,8 @@ words = [
     "Write git push in your repo",
     "Imagine writing code without errors.",
     f"I'm located in {directory_path}",
+    "Discord is kinda cool",
+    "",
 ]
 ugh = len(words) + 1
 words.append(f"The total sentences I can speak is {ugh}")
