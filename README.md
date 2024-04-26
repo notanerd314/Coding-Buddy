@@ -5,6 +5,8 @@ Here's an example image of how it works:
 
 ![Coding Buddy straight up telling the truth](/mdimages/example1.png)
 
+But it can do other stuff too! Like opening a color picker, opens cmd, ...
+
 # How to install
 
 **I highly recommend using this program in Windows. Because I haven't tested it yet in Linux or MacOS.**
@@ -29,4 +31,5 @@ I won't explain how to edit `settings.ini` but you can find how to edit it [**he
 
 # Key Shortcuts
 `Ctrl` + `H`: Opens the program you wanted to open, can be edited what program it should open in `settings.ini`
+`Ctrl` + `G`: Opens color picker
 `Space`: Changes sentence displayed on the window
