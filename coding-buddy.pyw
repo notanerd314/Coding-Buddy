@@ -5,8 +5,10 @@ import random
 import platform
 import configparser
 import subprocess
+import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
+from tkinter.colorchooser import askcolor
 
 # Config setup
 directory_path = os.path.dirname(__file__)
@@ -154,7 +156,7 @@ while run:
                     else:
                         messagebox.showerror("This feature is only available on Windows and Linux", "Error")
                 if event.key == pygame.K_g:
-                    exec(open(color_path).read())
+                    askcolor()
             if event.key == pygame.K_SPACE and enable_space:
                 caption_timer = time.time() - time_delay
     if time.time() - caption_timer >= time_delay:
