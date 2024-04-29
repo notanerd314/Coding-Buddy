@@ -31,5 +31,7 @@ I won't explain how to edit `settings.ini` but you can find how to edit `.ini` f
 
 # Key Shortcuts
 `Ctrl` + `H`: Opens the program you wanted to open, can be edited what program it should open in `settings.ini`
+
 `Ctrl` + `G`: Opens color picker
+
 `Space`: Changes sentence displayed on the window
