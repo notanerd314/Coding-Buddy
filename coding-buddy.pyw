@@ -1,10 +1,20 @@
-import pygame
+import subprocess
+try:
+    subprocess.run(['python', '-m', 'pip', '--version'], check=True)
+except subprocess.CalledProcessError:
+    messagebox.showerror("Error", "I need facepalm. INSTALL PIP RIGHT NOW.")
+    exit()
+try:
+    import pygame
+except ModuleNotFoundError:
+    messagebox.showerror("Error", "In order to run this program, you need pygame. So I'm installing it right now you little ass.")
+    process = subprocess.Popen("pip install pygame", stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
 import time
 import os
 import random
 import platform
 import configparser
-import subprocess
+import webbrowser
 import tkinter as tk
 from tkinter import *
 from tkinter import messagebox
@@ -27,8 +37,16 @@ s = 'SHORTCUTS'
 hex_color = config[c]['Text_Color']
 bg_image = config[c]['Bg_Image']
 special = config[c]['Special']
-window_width = int(config[c]['Window_Width'])
-window_height = int(config[c]['Window_Height'])
+try:
+    window_width = int(config[c]['Window_Width'])
+except ValueError:
+    messagebox.showerror("Error", "The window's width that you chose is not a number.")
+    exit()
+try:
+    window_height = int(config[c]['Window_Height'])
+except ValueError:
+    messagebox.showerror("Error", "The window's height that you chose is not a number.")
+    exit()
 text_font = config[c]['Text_Font']
 text_size = int(config[c]['Text_Size'])
 resize_enabled = config.getboolean(a, 'Resize')
@@ -40,7 +58,6 @@ enable_space = config[s]['Enable_Space']
 # Variable setup
 img_path = os.path.join(directory_path, 'resources', bg_image)
 sfx_path = os.path.join(directory_path, 'resources', 'secret.mp3')
-color_path = os.path.join(directory_path, 'resources', 'color_picker.pyw')
 s = platform.system(), platform.release()
 p = " ".join(s)
 pygame.init()
@@ -124,12 +141,15 @@ def convert(hex):
 hex_color = convert(hex_color)
 
 # Pygame setup
-img = pygame.image.load(img_path)
+try:
+    img = pygame.image.load(img_path)
+except FileNotFoundError:
+    messagebox.showerror("Error", "The file for the image doesn't exist.")
+    exit()
 if resize_enabled:
     window = pygame.display.set_mode((window_width, window_height), pygame.RESIZABLE)
 else:
     window = pygame.display.set_mode((window_width, window_height))
-
 ran = words[random.randint(0, len(words) - 1)]
 pygame.display.set_caption(config['ADVANCED']['Window_Name'])
 pygame.display.set_icon(img)
@@ -154,7 +174,7 @@ while run:
                     if not "Mac" in p:
                         subprocess.call(program_ctrl_h)
                     else:
-                        messagebox.showerror("This feature is only available on Windows and Linux", "Error")
+                        messagebox.showerror("Error", "This feature is only available on Windows and Linux")
                 if event.key == pygame.K_g:
                     askcolor()
             if event.key == pygame.K_SPACE and enable_space:
@@ -185,5 +205,8 @@ while run:
     pygame.display.flip()
 
 # Clean up
+if random.randint(1,100) == 59:
+    messagebox.showinfo("Lucky", "Cool man you got lucky! That is a 1 out of 100 chance gg.")
+    webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
 pygame.quit()
 exit()
